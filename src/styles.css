@@ -1,0 +1,52 @@
+/* You can add global styles to this file, and also import other style files */
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  width: 100vw;
+  height: 100vh;
+  overflow-x: hidden;
+}
+.form-box {
+  box-shadow: 0px 6px 16px 0px rgba(0, 0, 0, 0.27);
+  max-width: 1200px;
+  width: 500px;
+  padding: 40px;
+  border-radius: 10px;
+}
+.parent-container {
+  width: 100vw;
+  height: 100vh;
+}
+.btn {
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+}
+.btn:active {
+  transform: scale(0.95);
+}
+.full-width {
+  width: 100%;
+}
+.main-btn {
+  color: white;
+  font-size: 18px;
+  background-color: #866cd2;
+}
+.main-btn:hover {
+  color: white;
+}
+input.ng-invalid.ng-touched {
+  border: 1px solid red;
+}
+input.ng-valid {
+  border: 1px solid #4bb543;
+}
+.error-message {
+  color: red;
+}

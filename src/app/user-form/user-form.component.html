@@ -1,0 +1,133 @@
+<div class="container-fluid userForm-container">
+  <div *ngIf="showModal" class="modal-form">
+    <h4>Formulario guardado con éxito</h4>
+  </div>
+  <div *ngIf="showModal" class="overlay"></div>
+  <div class="row">
+    <div class="form-box">
+      <h2 class="text-center mb-4">Formulario</h2>
+      <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="email">Nombre</label>
+          <input
+            placeholder="Nombre"
+            id="name"
+            formControlName="name"
+            type="text"
+            class="form-control"
+          />
+          <span
+            class="alert alert-danger"
+            *ngIf="!userForm.get('name').valid && userForm.get('name').touched"
+          >
+            Ingresa un nombre válido
+          </span>
+        </div>
+        <div class="form-group">
+          <label for="lastName">Apellido</label>
+          <input
+            placeholder="Apellido"
+            id="lastName"
+            formControlName="lastName"
+            type="text"
+            class="form-control"
+          />
+          <span
+            class="alert alert-danger"
+            *ngIf="
+              !userForm.get('lastName').valid &&
+              userForm.get('lastName').touched
+            "
+          >
+            Ingresa un apellido válido
+          </span>
+        </div>
+        <div class="form-group">
+          <label for="email">E-mail</label>
+          <input
+            placeholder="E-mail"
+            id="email"
+            formControlName="email"
+            type="email"
+            class="form-control"
+          />
+          <span
+            class="alert alert-danger"
+            *ngIf="
+              !userForm.get('email').valid && userForm.get('email').touched
+            "
+          >
+            Ingresa un email válido
+          </span>
+        </div>
+        <div class="form-group">
+          <label for="dropDownSelect">País</label>
+          <select
+            formControlName="country"
+            class="form-control"
+            id="dropDownSelect"
+          >
+            <option>Selecciona un país</option>
+            <option *ngFor="let country of countries" [value]="country.name">{{
+              country.name
+            }}</option>
+          </select>
+          <span
+            class="alert alert-danger"
+            *ngIf="
+              !userForm.get('country').valid && userForm.get('country').touched
+            "
+          >
+            Selecciona un país
+          </span>
+        </div>
+        <div class="radio text-center" *ngFor="let gender of genders">
+          <label>
+            <input
+              type="radio"
+              name="gender"
+              formControlName="gender"
+              [value]="gender"
+            />
+            {{ gender }}
+          </label>
+          <span
+            class="alert alert-danger"
+            *ngIf="
+              !userForm.get('gender').valid && userForm.get('gender').touched
+            "
+          >
+            Selecciona un género
+          </span>
+        </div>
+        <div class="form-group">
+          <label for="phone">Teléfono</label>
+          <input
+            placeholder="Teléfono"
+            id="phone"
+            formControlName="phone"
+            type="text"
+            class="form-control"
+          />
+          <span
+            class="alert alert-danger"
+            *ngIf="
+              !userForm.get('phone').valid && userForm.get('phone').touched
+            "
+          >
+            Ingresa un teléfono válido
+          </span>
+        </div>
+        <div>
+          <button
+            [disabled]="!userForm.valid"
+            class="btn main-btn full-width mt-5"
+          >
+            Ingresar
+          </button>
+        </div>
+        <div></div>
+      </form>
+    </div>
+  </div>
+</div>
